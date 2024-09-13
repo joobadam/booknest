@@ -1,0 +1,10 @@
+<section class="features">
+    <h2>Miért válassz minket?</h2>
+    <div class="feature-list">
+      <div class="feature-item" *ngFor="let feature of features">
+        <mat-icon>{{feature.icon}}</mat-icon>
+        <h3>{{feature.title}}</h3>
+        <p>{{feature.description}}</p>
+      </div>
+    </div>
+  </section>

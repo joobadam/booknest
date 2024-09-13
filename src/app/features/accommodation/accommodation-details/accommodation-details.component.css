@@ -1,0 +1,17 @@
+.accommodation-details {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .accommodation-details img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .accommodation-details button {
+    margin-top: 20px;
+  }

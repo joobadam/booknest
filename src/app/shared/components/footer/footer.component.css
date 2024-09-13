@@ -1,0 +1,11 @@
+.spacer {
+    flex: 1 1 auto;
+  }
+  
+footer {
+    margin-top: auto;
+  }
+
+span {
+    font-size: 12px;
+}

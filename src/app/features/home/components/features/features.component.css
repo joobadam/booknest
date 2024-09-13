@@ -1,0 +1,38 @@
+.features {
+    padding: 4rem 2rem;
+    background-color: #ffffff;
+}
+
+.features h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+.feature-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.feature-list .feature-item {
+    flex-basis: calc(33.333% - 2rem);
+    text-align: center;
+    padding: 1rem;
+}
+
+.feature-list .feature-item mat-icon {
+    font-size: 3rem;
+    height: 3rem;
+    width: 3rem;
+    color: #3f51b5;
+}
+
+.feature-list .feature-item h3 {
+    margin: 1rem 0;
+    font-size: 1.5rem;
+}
+
+.feature-list .feature-item p {
+    color: #667;
+}

@@ -1,0 +1,29 @@
+<div class="booking-container">
+    <h2>Foglalás: {{ accommodation?.name }}</h2>
+    <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Érkezés</mat-label>
+        <input matInput [matDatepicker]="checkInPicker" formControlName="checkIn">
+        <mat-datepicker-toggle matSuffix [for]="checkInPicker"></mat-datepicker-toggle>
+        <mat-datepicker #checkInPicker></mat-datepicker>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Távozás</mat-label>
+        <input matInput [matDatepicker]="checkOutPicker" formControlName="checkOut">
+        <mat-datepicker-toggle matSuffix [for]="checkOutPicker"></mat-datepicker-toggle>
+        <mat-datepicker #checkOutPicker></mat-datepicker>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Vendégek száma</mat-label>
+        <input matInput type="number" formControlName="guests">
+      </mat-form-field>
+  
+      <p>Teljes ár: {{ calculateTotalPrice() | currency:'HUF':'symbol':'1.0-0' }}</p>
+  
+      <button mat-raised-button color="primary" type="submit" [disabled]="bookingForm.invalid || !isLoggedIn">
+        {{ isLoggedIn ? 'Foglalás' : 'Bejelentkezés szükséges a foglaláshoz' }}
+      </button>
+    </form>
+  </div>

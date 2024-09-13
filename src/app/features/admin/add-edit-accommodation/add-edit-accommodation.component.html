@@ -1,0 +1,49 @@
+<div class="add-edit-accommodation">
+  <h2>{{ isEditMode ? 'Szállás szerkesztése' : 'Új szállás hozzáadása' }}</h2>
+  <form [formGroup]="accommodationForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Név</mat-label>
+      <input matInput formControlName="name" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Helyszín</mat-label>
+      <input matInput formControlName="location" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Ár/éjszaka</mat-label>
+      <input matInput type="number" formControlName="price" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Leírás</mat-label>
+      <textarea matInput formControlName="description" required></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Max. vendégek száma</mat-label>
+      <input matInput type="number" formControlName="maxGuests" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Elérhető ettől</mat-label>
+      <input matInput [matDatepicker]="pickerFrom" formControlName="availableFrom">
+      <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+      <mat-datepicker #pickerFrom></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Elérhető eddig</mat-label>
+      <input matInput [matDatepicker]="pickerTo" formControlName="availableTo">
+      <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+      <mat-datepicker #pickerTo></mat-datepicker>
+    </mat-form-field>
+
+    <input type="file" (change)="onFileSelected($event)" accept="image/*">
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="accommodationForm.invalid">
+      {{ isEditMode ? 'Mentés' : 'Hozzáadás' }}
+    </button>
+  </form>
+</div>

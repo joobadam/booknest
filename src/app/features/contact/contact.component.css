@@ -1,0 +1,34 @@
+.contact-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #3f51b5;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+mat-card {
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-form-field {
+  margin-bottom: 15px;
+}
+
+button {
+  align-self: flex-start;
+}
+
+h2 {
+  color: #3f51b5;
+  font-size: 1.5rem;
+}

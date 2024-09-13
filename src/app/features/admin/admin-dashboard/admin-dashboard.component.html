@@ -1,0 +1,17 @@
+<div class="admin-dashboard">
+  <h2>Admin Dashboard</h2>
+  <button mat-raised-button color="primary" routerLink="/admin/add-accommodation">Új szállás hozzáadása</button>
+
+  <mat-list>
+    <mat-list-item *ngFor="let accommodation of accommodations$ | async">
+      <span matListItemTitle>{{ accommodation.name }}</span>
+      <span matListItemLine>{{ accommodation.location }}</span>
+      <button mat-icon-button [routerLink]="['/admin/edit-accommodation', accommodation.id]">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button (click)="deleteAccommodation(accommodation.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-list>
+</div>

@@ -1,0 +1,24 @@
+.booking-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+mat-form-field {
+    margin-bottom: 20px;
+  }
+  
+button {
+    align-self: flex-start;
+  }

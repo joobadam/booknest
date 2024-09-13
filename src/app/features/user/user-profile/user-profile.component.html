@@ -1,0 +1,13 @@
+<div class="user-profile">
+    <h2>Felhasználói Profil</h2>
+    <h3>Foglalásaim</h3>
+    <mat-list>
+      <mat-list-item *ngFor="let booking of bookings$ | async">
+        <h4 mat-line>Foglalás ID: {{ booking.id }}</h4>
+        <p mat-line>Érkezés: {{ booking.checkIn | date }}</p>
+        <p mat-line>Távozás: {{ booking.checkOut | date }}</p>
+        <p mat-line>Vendégek száma: {{ booking.guests }}</p>
+        <p mat-line>Teljes ár: {{ booking.totalPrice | currency:'HUF':'symbol':'1.0-0' }}</p>
+      </mat-list-item>
+    </mat-list>
+</div>

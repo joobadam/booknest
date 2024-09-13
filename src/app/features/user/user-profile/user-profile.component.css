@@ -1,0 +1,11 @@
+.user-profile {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+mat-list-item {
+    margin-bottom: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+  }
