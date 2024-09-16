@@ -6,21 +6,27 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
 
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { FooterComponent } from './components/footer/footer.component';
+
+const materialModules = [
+  MatToolbarModule,
+  MatButtonModule,
+  MatIconModule,
+  MatSidenavModule,
+  MatListModule,
+  MatMenuModule
+];
 
 @NgModule({
-  declarations: [NavbarComponent, FooterComponent],
+  declarations: [],
   imports: [
     CommonModule,
     RouterModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
-    MatSidenavModule,
-    MatListModule
+    ...materialModules
   ],
-  exports: [NavbarComponent, FooterComponent]
+  exports: [
+    ...materialModules
+  ]
 })
 export class SharedModule { }

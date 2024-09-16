@@ -2,13 +2,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 4rem 2rem;
-  background-color: #f8f9fa;
+  padding: 50px 0;
 }
 
 .hero-content {
   flex: 1;
-  max-width: 50%;
+  padding-right: 30px;
 }
 
 .hero-content h1 {
@@ -23,11 +22,22 @@
 
 .hero-image {
   flex: 1;
-  max-width: 50%;
 }
 
 .hero-image img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
   border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-content {
+    padding-right: 0;
+    margin-bottom: 30px;
+  }
 }

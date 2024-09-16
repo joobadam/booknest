@@ -5,6 +5,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 import { BookingComponent } from './booking.component';
 
 @NgModule({
@@ -15,6 +16,7 @@ import { BookingComponent } from './booking.component';
     MatInputModule,
     MatDatepickerModule,
     MatButtonModule,
+    HttpClientModule,
     RouterModule.forChild([
       { path: '', component: BookingComponent }
     ])

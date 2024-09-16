@@ -1,0 +1,25 @@
+.featured-accommodations {
+  margin-top: 2rem;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.accommodation-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+mat-card {
+  max-width: 300px;
+  width: 100%;
+}
+
+mat-card img {
+  height: 200px;
+  object-fit: cover;
+}

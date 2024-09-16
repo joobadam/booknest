@@ -1,9 +1,16 @@
 <div *ngIf="accommodation$ | async as accommodation" class="accommodation-details">
   <h2>{{ accommodation.name }}</h2>
-  <img [src]="accommodation.imageUrl" [alt]="accommodation.name">
-  <p><strong>Helyszín:</strong> {{ accommodation.location }}</p>
-  <p><strong>Ár:</strong> {{ accommodation.price | currency:'HUF':'symbol':'1.0-0' }} / éjszaka</p>
-  <p><strong>Maximális vendégek száma:</strong> {{ accommodation.maxGuests }}</p>
-  <p>{{ accommodation.description }}</p>
-  <button mat-raised-button color="primary" (click)="onBooking()">Foglalás</button>
+  <div class="accommodation-content">
+    <div class="accommodation-image">
+      <img [src]="accommodation.imageUrl" [alt]="accommodation.name">
+    </div>
+    <div class="accommodation-info">
+      <p><strong>Helyszín:</strong> {{ accommodation.location }}</p>
+      <p><strong>Ár:</strong> {{ accommodation.price | currency:'HUF':'symbol':'1.0-0' }} / éjszaka</p>
+      <p><strong>Maximális vendégek száma:</strong> {{ accommodation.maxGuests }}</p>
+      <p>{{ accommodation.description }}</p>
+      <button mat-raised-button color="primary" (click)="onBooking()">Foglalás</button>
+    </div>
+  </div>
+    <app-featured-accommodations></app-featured-accommodations>
 </div>

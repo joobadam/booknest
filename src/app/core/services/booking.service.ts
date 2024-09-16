@@ -1,23 +1,20 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Booking } from '../models/booking.model';
 
-export interface Booking {
-  id?: string;
-  accommodationId: string;
-  userId: string;
-  checkIn: Date;
-  checkOut: Date;
-  guests: number;
-  totalPrice: number;
-}
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookingService {
-  constructor(private firestore: AngularFirestore) {}
+  constructor(
+    private firestore: AngularFirestore,
+    private http: HttpClient
+  ) {}
 
   createBooking(booking: Booking): Promise<any> {
     return this.firestore.collection('bookings').add(booking);
@@ -53,5 +50,9 @@ export class BookingService {
 
   deleteBooking(id: string): Promise<void> {
     return this.firestore.doc(`bookings/${id}`).delete();
+  }
+
+  finalizeBooking(sessionId: string): Observable<any> {
+    return this.http.post('/api/finalize-booking', { sessionId });
   }
 }

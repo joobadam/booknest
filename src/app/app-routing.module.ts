@@ -16,7 +16,6 @@ const routes: Routes = [
   { path: 'search', loadChildren: () => import('./features/search/search.module').then(m => m.SearchModule) },
   { path: 'accommodation/:id', loadChildren: () => import('./features/accommodation/accommodation.module').then(m => m.AccommodationModule) },
   { path: 'booking/:id', loadChildren: () => import('./features/booking/booking.module').then(m => m.BookingModule) },
-/*   { path: 'profile', loadChildren: () => import('./features/user/user.module').then(m => m.UserModule) }, */
   {
     path: 'admin',
     loadChildren: () => import('./features/admin/admin.module').then(m => m.AdminModule),
@@ -25,6 +24,10 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'privacy', component: PrivacyPolicyComponent },
+  {
+    path: 'payment-success',
+    loadChildren: () => import('./features/payment-success/payment-success.module').then(m => m.PaymentSuccessModule)
+  },
 ];
 
 @NgModule({

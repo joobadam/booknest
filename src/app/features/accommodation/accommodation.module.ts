@@ -4,16 +4,19 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { AccommodationDetailsComponent } from './accommodation-details/accommodation-details.component';
-
+import { HomeModule } from '../home/home.module';
 
 @NgModule({
-  declarations: [AccommodationDetailsComponent],
+  declarations: [
+    AccommodationDetailsComponent,
+  ],
   imports: [
     CommonModule,
     MatButtonModule,
     RouterModule.forChild([
       { path: '', component: AccommodationDetailsComponent }
-    ])
+    ]),
+    HomeModule
   ]
 })
 export class AccommodationModule { }

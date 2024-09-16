@@ -1,17 +1,29 @@
 .accommodation-details {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
   }
   
-  .accommodation-details img {
-    width: 100%;
-    max-height: 400px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 20px;
+  .accommodation-content {
+    display: flex;
+    gap: 30px;
   }
-  
-  .accommodation-details button {
-    margin-top: 20px;
+
+  .accommodation-image {
+    flex: 1;
+  }
+
+  .accommodation-image img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .accommodation-info {
+    flex: 1;
+  }
+
+  @media (max-width: 768px) {
+    .accommodation-content {
+      flex-direction: column;
+    }
   }

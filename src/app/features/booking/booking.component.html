@@ -1,6 +1,6 @@
 <div class="booking-container">
     <h2>Foglalás: {{ accommodation?.name }}</h2>
-    <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()" class="booking-form">
       <mat-form-field appearance="fill">
         <mat-label>Érkezés</mat-label>
         <input matInput [matDatepicker]="checkInPicker" formControlName="checkIn">
@@ -23,7 +23,7 @@
       <p>Teljes ár: {{ calculateTotalPrice() | currency:'HUF':'symbol':'1.0-0' }}</p>
   
       <button mat-raised-button color="primary" type="submit" [disabled]="bookingForm.invalid || !isLoggedIn">
-        {{ isLoggedIn ? 'Foglalás' : 'Bejelentkezés szükséges a foglaláshoz' }}
+        {{ isLoggedIn ? 'Foglalás és fizetés' : 'Bejelentkezés szükséges a foglaláshoz' }}
       </button>
     </form>
   </div>

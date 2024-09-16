@@ -2,7 +2,7 @@
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
-  }
+}
 
 h2 {
     font-size: 1.5rem;
@@ -22,3 +22,15 @@ mat-form-field {
 button {
     align-self: flex-start;
   }
+
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@media (max-width: 600px) {
+    .booking-container {
+        padding: 10px;
+    }
+}

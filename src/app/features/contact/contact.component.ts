@@ -25,7 +25,7 @@ export class ContactComponent implements OnInit {
 
   onSubmit() {
     if (this.contactForm.valid) {
-      // Itt küldenénk el az üzenetet a szervernek
+
       console.log(this.contactForm.value);
       this.snackBar.open('Köszönjük üzenetét! Hamarosan válaszolunk.', 'Bezár', {
         duration: 3000,

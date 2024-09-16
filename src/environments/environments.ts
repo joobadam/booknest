@@ -8,6 +8,7 @@ export const environment = {
       messagingSenderId: "338625902172",
       appId: "1:338625902172:web:1a682e3868a40bebee1899",
       measurementId: "G-D7HDZ5980K"
-    }
-  };
+    },
+    stripePublishableKey: 'pk_test_51PzbcOLTmLTvxyZEo1iDYgUH7aoMOZR7WCxHHVJ1pWy5KSojXceOPfDBrE4AKv88HU04ApHpCnIu46vC9KUrZbP400Gik0Sg0y'
+};
 

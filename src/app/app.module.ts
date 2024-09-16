@@ -20,8 +20,6 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 
-
-
 import { AboutComponent } from './features/about/about.component';
 import { ContactComponent } from './features/contact/contact.component';
 import { PrivacyPolicyComponent } from './features/privacy-policy/privacy-policy.component';
@@ -29,6 +27,8 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { AuthModule } from './features/auth/auth.module';
 import { environment } from '../environments/environments';
+import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -58,7 +58,9 @@ import { environment } from '../environments/environments';
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
-    AuthModule
+    AuthModule,
+    HttpClientModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

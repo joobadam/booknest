@@ -3,12 +3,9 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable, of } from 'rxjs';
 import { switchMap, map } from 'rxjs/operators';
+import { User } from '../models/user.model';
 
-export interface User {
-  uid: string;
-  email: string | null;
-  isAdmin: boolean;
-}
+
 
 @Injectable({
   providedIn: 'root'
@@ -42,7 +39,7 @@ export class AuthService {
         await userRef.set({
           uid: credential.user.uid,
           email: credential.user.email,
-          isAdmin: false // Alapértelmezetten nem admin
+          isAdmin: false 
         });
       }
     }

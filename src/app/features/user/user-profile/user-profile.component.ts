@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { AuthService } from '../../../core/services/auth.service';
-import { BookingService, Booking } from '../../../core/services/booking.service';
+import { BookingService,  } from '../../../core/services/booking.service';
+import { Booking } from '../../../core/models/booking.model';
 
 @Component({
   selector: 'app-user-profile',

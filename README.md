@@ -1,27 +1,58 @@
-# Booknest
+# Accommodation Booking Website
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.1.
+This project implements an accommodation booking website using Angular 18.
 
-## Development server
+## Technologies
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Angular**: The project uses Angular 18 with the AppModule approach.
+- **Angular Material**: The user interface is built with Angular Material UI components.
+- **Firebase**: We use Firebase and Firestore for data storage and authentication management.
+- **Stripe**: The payment process is implemented with Stripe integration.
 
-## Code scaffolding
+## Project Structure
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The project follows the traditional Angular project structure with AppModule at the root.
 
-## Build
+## Installation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Clone the repository:
+   ```
+   git clone [repo URL]
+   ```
+2. Install dependencies:
+   ```
+   npm install
+   ```
+3. Start the development server:
+   ```
+   ng serve
+   ```
 
-## Running unit tests
+## Configuration
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+For Firebase and Stripe configuration, create an `environment.ts` file with the following content:
 
-## Running end-to-end tests
+```typescript
+export const environment = {
+  production: false,
+  firebaseConfig: {
+    // Firebase configuration
+  },
+  stripePublishableKey: 'your_stripe_publishable_key'
+};
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Usage
 
-## Further help
+After launching the application, users can:
+- Browse accommodations
+- Register or log in
+- Make reservations
+- Pay for bookings through the Stripe system
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Contributing
+
+If you'd like to contribute to the project, please open a new issue or pull request.
+
+## License
+joobadam

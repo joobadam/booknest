@@ -72,8 +72,7 @@ export class SearchComponent implements OnInit {
   }
 
   isAvailable(accommodation: Accommodation, checkIn: Date, checkOut: Date): boolean {
-    // Itt kell implementálni a foglalások ellenőrzését
-    // Egyelőre mindig true-t ad vissza
+   
     return true;
   }
 
