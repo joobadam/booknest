@@ -12,7 +12,7 @@ if (environmentFile) {
     envKeys.forEach(key => {
         const value = process.env[key];
         if (value) {
-            content = content.replace(new RegExp(`process.env\\['${key}'\\]`, 'g'), `'${value}'`);
+            content = content.replace(new RegExp(`'${key}'`, 'g'), `'${value}'`);
         }
     });
 
