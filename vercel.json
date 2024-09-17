@@ -1,11 +1,17 @@
 {
   "version": 2,
   "builds": [
-    { "src": "dist/booknest/**", "use": "@vercel/static" }
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist/booknest/browser"
+      }
+    }
   ],
   "routes": [
-    { "src": "/assets/(.*)", "dest": "/dist/booknest/browser/assets/$1" },
-    { "src": "/(.+\\.(?:js|css|ico))", "dest": "/dist/booknest/browser/$1" },
-    { "src": "/(.*)", "dest": "/dist/booknest/browser/index.html" }
+    { "src": "/assets/(.*)", "dest": "/assets/$1" },
+    { "src": "/(.+\\.(?:js|css|ico))", "dest": "/$1" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
