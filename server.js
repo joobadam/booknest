@@ -4,7 +4,7 @@ const cors = require('cors');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const app = express();
 
-app.use(cors()); 
+app.use(cors({ origin: process.env.FRONTEND_URL }));
 app.use(express.json());
 
 app.post('/api/create-checkout-session', async (req, res) => {

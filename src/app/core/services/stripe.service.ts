@@ -16,7 +16,11 @@ export class StripeService {
 
   createCheckoutSession(bookingData: any): Observable<{ sessionId: string }> {
     console.log('Sending request to create checkout session:', bookingData);
-    return this.http.post<{ sessionId: string }>('/api/create-checkout-session', bookingData);
+    const apiUrl = environment.production 
+      ? '/api/create-checkout-session'
+      : 'http://localhost:3000/api/create-checkout-session';
+    
+    return this.http.post<{ sessionId: string }>(apiUrl, bookingData);
   }
 
   async redirectToCheckout(sessionId: string) {
