@@ -26,7 +26,7 @@ import { PrivacyPolicyComponent } from './features/privacy-policy/privacy-policy
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { AuthModule } from './features/auth/auth.module';
-import { environment } from '../environments/environments';
+import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 
