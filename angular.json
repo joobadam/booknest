@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-           "outputPath": "dist/booknest/browser",
+            "outputPath": "dist/booknest/browser",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -33,7 +33,13 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "public",
+                "output": "/"
+              },
+              {
+                "glob": "favicon.ico",
+                "input": "src",
+                "output": "/"
               }
             ],
             "styles": [
@@ -45,17 +51,17 @@
           "configurations": {
             "production": {
               "budgets": [
-        {
-          "type": "initial",
-          "maximumWarning": "2mb",
-          "maximumError": "5mb"
-        },
-        {
-          "type": "anyComponentStyle",
-          "maximumWarning": "6kb",
-          "maximumError": "10kb"
-        }
-      ],
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ],
               "outputHashing": "all",
               "fileReplacements": [
                 {
@@ -99,11 +105,11 @@
               "zone.js/testing"
             ],
             "tsConfig": "tsconfig.spec.json",
-       "assets": [
+            "assets": [
               {
                 "glob": "**/*",
-                "input": "src/assets",
-                "output": "assets"
+                "input": "public",
+                "output": "/"
               },
               {
                 "glob": "favicon.ico",
