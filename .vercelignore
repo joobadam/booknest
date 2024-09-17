@@ -1,4 +1,2 @@
-README.md
-.gitignore
-.git
-node_modules
+*
+!dist/booknest
