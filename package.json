@@ -5,10 +5,9 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "vercel-build": "rm -rf dist && ng build --configuration=production && cp dist/booknest/browser/browser/index.html dist/booknest/browser/browser/404.html",
+    "vercel-build": "rm -rf dist && ng build --configuration=production && ls -R dist && cp dist/booknest/browser/index.html dist/booknest/browser/404.html",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "postinstall": "ngcc"
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {
