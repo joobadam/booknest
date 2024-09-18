@@ -1,5 +1,6 @@
 export const environment = {
   production: false,
+  apiUrl: 'http://localhost:3000/api', // Módosítva
   firebaseConfig: {
     apiKey: 'AIzaSyClH_9y9QWYFywa-wT-5C34S0WrVI-6PV4',
     authDomain: 'booknest-2178a.firebaseapp.com',
