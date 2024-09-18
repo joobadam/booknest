@@ -12,6 +12,7 @@ export class StripeService {
   private stripePromise = loadStripe(environment.stripePublishableKey);
 
   constructor(private http: HttpClient) {}
+
   createCheckoutSession(bookingData: any): Observable<{ sessionId: string }> {
     const apiUrl = `${environment.apiUrl}/create-checkout-session`;
     console.log('Sending request to:', apiUrl);
@@ -22,6 +23,7 @@ export class StripeService {
         catchError(this.handleError)
       );
   }
+
   async redirectToCheckout(sessionId: string) {
     try {
       const stripe = await this.stripePromise;
