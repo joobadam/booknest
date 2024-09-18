@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "vercel-build": "rm -rf dist && ng build --configuration=production && ls -R dist && cp dist/booknest/browser/browser/index.html dist/booknest/browser/browser/404.html",
+    "vercel-build": "rm -rf dist && ng build --configuration=production && ls -R dist && cp dist/booknest/browser/browser/browser/index.html dist/booknest/browser/browser/browser/404.html",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
