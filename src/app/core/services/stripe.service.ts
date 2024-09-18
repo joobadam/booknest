@@ -12,18 +12,16 @@ export class StripeService {
   private stripePromise = loadStripe(environment.stripePublishableKey);
 
   constructor(private http: HttpClient) {}
-
   createCheckoutSession(bookingData: any): Observable<{ sessionId: string }> {
-    const apiUrl = `${environment.apiUrl}/api/create-checkout-session`;
+    const apiUrl = `${environment.apiUrl}/create-checkout-session`;
     console.log('Sending request to:', apiUrl);
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.http.post<{ sessionId: string }>(apiUrl, bookingData, { headers, withCredentials: true })
+    return this.http.post<{ sessionId: string }>(apiUrl, bookingData, { headers })
       .pipe(
         tap(response => console.log('Received response:', response)),
         catchError(this.handleError)
       );
   }
-
   async redirectToCheckout(sessionId: string) {
     try {
       const stripe = await this.stripePromise;
