@@ -2,37 +2,38 @@ const cors = require('cors');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const corsOptions = {
-  origin: function (origin, callback) {
-    const allowedOrigins = ['http://localhost:4200', 'http://localhost:3000', 'https://booknest-dun.vercel.app'];
-    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
+  origin: '*',
   methods: ['POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
 };
 
 module.exports = async (req, res) => {
-  console.log('Received request');
+  console.log('Function started');
   console.log('Request method:', req.method);
-  console.log('Request headers:', req.headers);
+  console.log('Request headers:', JSON.stringify(req.headers));
+  console.log('Request body:', JSON.stringify(req.body));
   
-  await new Promise((resolve) => cors(corsOptions)(req, res, resolve));
-
+ 
   if (req.method === 'OPTIONS') {
-    console.log('Responding to OPTIONS request');
+    console.log('Handling OPTIONS request');
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     res.status(200).end();
+    console.log('OPTIONS request handled');
     return;
   }
+
+
+  await new Promise((resolve) => cors(corsOptions)(req, res, resolve));
+  console.log('CORS middleware applied');
 
   if (req.method === 'POST') {
     console.log('Processing POST request');
     try {
-      console.log('Request body:', req.body);
       const { accommodationId, checkIn, checkOut, guests, totalPrice } = req.body;
+      console.log('Parsed request body:', { accommodationId, checkIn, checkOut, guests, totalPrice });
 
       console.log('Creating Stripe checkout session');
       const session = await stripe.checkout.sessions.create({
@@ -66,4 +67,5 @@ module.exports = async (req, res) => {
     res.setHeader('Allow', 'POST');
     res.status(405).end('Method Not Allowed');
   }
+  console.log('Function completed');
 };

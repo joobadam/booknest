@@ -16,6 +16,7 @@ export class StripeService {
   createCheckoutSession(bookingData: any): Observable<{ sessionId: string }> {
     const apiUrl = `${environment.apiUrl}/create-checkout-session`;
     console.log('Sending request to:', apiUrl);
+    console.log('Booking data:', bookingData);
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     return this.http.post<{ sessionId: string }>(apiUrl, bookingData, { headers })
       .pipe(
@@ -26,6 +27,7 @@ export class StripeService {
 
   async redirectToCheckout(sessionId: string) {
     try {
+      console.log('Redirecting to checkout with sessionId:', sessionId);
       const stripe = await this.stripePromise;
       const result = await stripe!.redirectToCheckout({
         sessionId: sessionId,
