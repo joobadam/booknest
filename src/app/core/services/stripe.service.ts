@@ -14,7 +14,7 @@ export class StripeService {
   constructor(private http: HttpClient) {}
 
   createCheckoutSession(bookingData: any): Observable<{ sessionId: string }> {
-    const apiUrl = `${environment.apiUrl}/create-checkout-session`;
+    const apiUrl = `${environment.apiUrl}/api/create-checkout-session`;
     console.log('Sending request to:', apiUrl);
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     return this.http.post<{ sessionId: string }>(apiUrl, bookingData, { headers, withCredentials: true })
