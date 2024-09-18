@@ -1,20 +1,6 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 module.exports = async (req, res) => {
-  console.log('Function started');
-  console.log('Request method:', req.method);
-  console.log('Request headers:', JSON.stringify(req.headers));
-  console.log('Request body:', JSON.stringify(req.body));
-
- 
-  res.setHeader('Access-Control-Allow-Credentials', true);
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-  );
-
   if (req.method === 'OPTIONS') {
     res.status(200).end();
     return;
@@ -23,9 +9,7 @@ module.exports = async (req, res) => {
   if (req.method === 'POST') {
     try {
       const { accommodationId, checkIn, checkOut, guests, totalPrice } = req.body;
-      console.log('Parsed request body:', { accommodationId, checkIn, checkOut, guests, totalPrice });
 
-      console.log('Creating Stripe checkout session');
       const session = await stripe.checkout.sessions.create({
         payment_method_types: ['card'],
         line_items: [
@@ -46,16 +30,12 @@ module.exports = async (req, res) => {
         cancel_url: `${process.env.FRONTEND_URL}/booking/${accommodationId}`,
       });
 
-      console.log('Checkout session created:', session.id);
       res.status(200).json({ sessionId: session.id });
     } catch (error) {
-      console.error('Error creating checkout session:', error);
       res.status(500).json({ error: error.message });
     }
   } else {
-    console.log('Method not allowed:', req.method);
     res.setHeader('Allow', 'POST');
     res.status(405).end('Method Not Allowed');
   }
-  console.log('Function completed');
 };
